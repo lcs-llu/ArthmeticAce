@@ -48,21 +48,21 @@ struct ContentView: View {
             HStack {
                 
                 ZStack{
-                Image(systemName: "checkmark.circle")
-                    .foregroundColor(Color.green)
-                //            CONDITION      true  false
-                    .opacity(answerCorrect ? 1.0 : 0.0)
-                
-                Image(systemName: "x.square")
-                    .foregroundColor(Color.red)
-                //            CONDITION      true  false
-                    .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
-                
-                Spacer()
-                TextField("",
-                          text: $inputGiven)
-                    .multilineTextAlignment(.trailing)
-             }
+                    Image(systemName: "checkmark.circle")
+                        .foregroundColor(Color.green)
+                    //            CONDITION      true  false
+                        .opacity(answerCorrect ? 1.0 : 0.0)
+                    
+                    Image(systemName: "x.square")
+                        .foregroundColor(Color.red)
+                    //            CONDITION      true  false
+                        .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
+                    
+                    Spacer()
+                    TextField("",
+                              text: $inputGiven)
+                        .multilineTextAlignment(.trailing)
+                }
             }
             Button(action: {
                 
@@ -84,11 +84,12 @@ struct ContentView: View {
                     // Sadness, they gave a number, but it's not correct
                     answerCorrect = false
                     
-                    
                 }
             }, label: {
                 Text("Check Answer")
                     .font(.largeTitle)
+                
+                    .opacity(answerChecked ? 0.0 : 1.0)
             })
                 .padding()
                 .buttonStyle(.bordered)
@@ -102,6 +103,8 @@ struct ContentView: View {
             }, label: {
                 Text("Another Question")
                     .font(.largeTitle)
+                
+                
             })
                 .padding()
                 .buttonStyle(.bordered)
