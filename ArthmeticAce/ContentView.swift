@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     //MARK: Stored properties
-    let multiplicand = Int.random(in: 1...12)
-    let multiplier = Int.random(in: 1...12)
+    @State var multiplicand = Int.random(in: 1...12)
+    @State var multiplier = Int.random(in: 1...12)
     @State var inputGiven = ""
     
     // Has an answeer been checked?
@@ -77,6 +77,19 @@ struct ContentView: View {
                 }
             }, label: {
                 Text("Check Answer")
+                    .font(.largeTitle)
+            })
+                .padding()
+                .buttonStyle(.bordered)
+            
+            Button(action: {
+                multiplicand = Int.random(in: 1...12)
+                multiplier = Int.random(in: 1...12)
+                inputGiven = ""
+                answerChecked = false
+                answerCorrect = false
+            }, label: {
+                Text("Another Question")
                     .font(.largeTitle)
             })
                 .padding()
