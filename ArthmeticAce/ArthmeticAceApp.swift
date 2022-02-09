@@ -11,7 +11,7 @@ import SwiftUI
 struct ArthmeticAceApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AdditionView()
         }
     }
 }
